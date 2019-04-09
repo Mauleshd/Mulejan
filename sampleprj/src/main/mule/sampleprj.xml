@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="546ce90c-fe2a-44a5-a979-9e9bfb609e87" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<!--  <configuration-properties doc:name="Configuration properties" doc:id="87a495f1-85c2-4a30-8623-5b236586aed3" file="${env}.properties" />-->
+	<!--  <global-property doc:name="Global Property" doc:id="961117bc-4b9a-4069-a218-0b54f6be6c57" name="env" value="dev" />-->
+	<flow name="sampleprjFlow" doc:id="e070e846-1a32-45be-9bd7-20cd57db6b13" >
+		<http:listener doc:name="Listener" doc:id="117efb8a-ad7d-47b0-bf3d-7eaf2a7bb593" config-ref="HTTP_Listener_config" path="/sampleprj"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2646b403-0809-4d81-b095-e2274830f8f5" message="invoked url suffix is #[attributes.relativePath]"/>
+	</flow>
+</mule>
