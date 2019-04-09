@@ -12,6 +12,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 		<set-payload value='#[%dw 2.0 output application/json
 ---
 
-Response: "Hello world, This is a maven test from mule."]' doc:name="Set Payload" doc:id="ded484e9-af60-49d3-a5f7-c446614a3b49" />
+Response: "Hello world, This is a Maven test from mule. If you see this message it is working."]' doc:name="Set Payload" doc:id="ded484e9-af60-49d3-a5f7-c446614a3b49" />
 	</flow>
 </mule>
