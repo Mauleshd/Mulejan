@@ -11,6 +11,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<!--  <global-property doc:name="Global Property" doc:id="961117bc-4b9a-4069-a218-0b54f6be6c57" name="env" value="dev" />-->
 	<flow name="sampleprjFlow" doc:id="e070e846-1a32-45be-9bd7-20cd57db6b13" >
 		<http:listener doc:name="Listener" doc:id="117efb8a-ad7d-47b0-bf3d-7eaf2a7bb593" config-ref="HTTP_Listener_config" path="/sampleprj"/>
-		<logger level="INFO" doc:name="Logger" doc:id="2646b403-0809-4d81-b095-e2274830f8f5" message="invoked url suffix is #[attributes.relativePath]"/>
+		<logger level="INFO" doc:name="Logger" doc:id="2646b403-0809-4d81-b095-e2274830f8f5" message="invoked url suffix is #[attributes.relativePath]" category="/all"/>
 	</flow>
 </mule>
