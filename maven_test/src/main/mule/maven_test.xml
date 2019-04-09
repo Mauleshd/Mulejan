@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="fb999c2a-c229-4d45-bf70-918542bea8cb" >
+		<http:listener-connection host="0.0.0.0" port="${http.port}" />
+	</http:listener-config>
+	<flow name="maven_testFlow" doc:id="30973c38-dba3-4991-9071-d2b708487c6b" >
+		<http:listener doc:name="Listener" doc:id="fa7a3832-c2b0-4e4c-b873-c21a2fc1ca90" config-ref="HTTP_Listener_config" path="/maven"/>
+		<set-payload value='#[%dw 2.0 output application/json
+---
+
+Response: "Hello world, This is a maven test from mule."]' doc:name="Set Payload" doc:id="ded484e9-af60-49d3-a5f7-c446614a3b49" />
+	</flow>
+</mule>
